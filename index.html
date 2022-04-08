@@ -1,0 +1,218 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Press Start 2P', cursive;
+      padding: 0;
+      margin: 0;
+    }
+
+    #background-blur {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100vh;
+      background-image: url(assets/background.png);
+      background-position: top;
+      background-size: 1920px 774px;
+      filter: blur(2px);
+        -webkit-filter: blur(4px);  
+    }
+  </style>
+</head>
+
+<body>
+  <div id="background-blur"></div>
+  <div 
+    style="
+      position: relative;
+      display: inline-block;
+      
+      /* disable margin, transform css see 1:1 ratio game */
+      margin: 97 0 0 270; 
+      transform: scale(1.31);
+    "
+  >    
+
+    <!-- top bar unit -->
+    <div 
+      style="
+        position: absolute; 
+        display: flex; 
+        align-items: center; 
+        width: 100%; 
+        padding: 15px 20px;
+        z-index: 10;
+      "
+    >
+
+      <!-- player pict -->
+      <div 
+        style="
+          position: absolute;
+          width: 120px;
+          height: 100px;
+          background: transparent;
+          background-image: url(assets/samurai-mack/SamuraiMack.png);
+          background-size: 145px 145px;
+          background-position: center top;
+          left: 0;
+        "
+      ></div>
+
+      <!-- player health bar -->
+      <div 
+        style="
+          position: relative; 
+          height: 25px; 
+          width: 60%; 
+          display: flex;
+          justify-content: flex-end;
+          transform: skew(20deg);
+          margin-left: 95px;
+          margin-top: -10px;
+        "
+      >
+        <div 
+          style="
+            background-color: #2C3333;
+            height: 25px; 
+            width: 100%;
+          "
+        ></div>
+        
+        <div id="playerHealth" 
+          style="
+            position: absolute;
+            background-image: linear-gradient(to top, #B20600 , #FF5F00);
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            width: 100%;
+          "
+        ></div>
+      </div>
+
+      <!-- player stamina WIP -->
+      <div 
+        style="
+          position: absolute; 
+          height: 10px;
+          width: 20%;
+          background: #2C3333;
+          transform: skew(20deg);
+          margin-left: 104px;
+          margin-top: 35px;
+        "
+      ></div>
+
+      <!-- timer -->
+      <div 
+        id="timer"
+        style="
+          background: transparent; 
+          height: 100px; 
+          width: 130px; 
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 2.3rem;
+          margin-top: 2px;
+          color: #FAFDD6;
+        "
+      >
+        120
+      </div>
+      
+      <!-- enemy health bar -->
+      <div 
+        style="
+          position: relative; 
+          height: 25px;
+          width: 60%;
+          transform: skew(-20deg);
+          margin-right: 90px;
+          margin-top: -10px;
+        "
+      >
+        <div
+          style="
+            background-color: #2C3333; 
+            height: 25px;
+          "
+        ></div>
+        <div id="enemyHealth" 
+          style="
+            position: absolute;
+            background-image: linear-gradient(to top, #21325E , #1597BB);
+            top: 0; 
+            right: 0; 
+            bottom: 0; 
+            left: 0;
+          "
+        ></div>
+      </div>
+
+      <!-- enemy stamina WIP -->
+      <div 
+        style="
+          position: absolute; 
+          height: 10px;
+          width: 20%;
+          background: #2C3333;
+          transform: skew(-20deg);
+          margin-right: 117px;
+          margin-top: 35px;
+          right: 0;
+        "
+      ></div>
+
+      <!-- enemy pict -->
+      <div 
+        style="
+          position: absolute;
+          width: 100px;
+          height: 100px;
+          background: transparent;
+          background-image: url(assets/kenji/Kenji.png);
+          background-size: 150px 150px;
+          background-position: center top;
+          right: 20px;
+        "
+      ></div>
+
+    </div>
+
+    <!-- display text -->
+    <div 
+      id="displayText"
+      style="
+        position: absolute; 
+        color: #FAFDD6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+        font-size: 3rem;
+      "
+    >
+      Player 1 Wins
+    </div>
+    
+    <canvas></canvas>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/classes.js"></script>
+  <script src="js/utilities.js"></script>
+  <script src="index.js"></script>
+</body>
